@@ -64,10 +64,13 @@ class LogIn extends Component {
     });
 
     try {
-      const response = await axios.post("http://localhost:3000/user/login", {
-        email: this.state.email,
-        password: this.state.password
-      });
+      const response = await axios.post(
+        "https://skilters-server-technical-test.herokuapp.com/user/login",
+        {
+          email: this.state.email,
+          password: this.state.password
+        }
+      );
 
       const { token, firstName, lastName } = response.data.user;
       this.props.registerToken(token, firstName, lastName);

@@ -44,9 +44,12 @@ class App extends Component {
     const token = this.state.token;
 
     try {
-      const response = await axios.get("http://localhost:3000/user/readToken", {
-        headers: { authorization: "Bearer " + token }
-      });
+      const response = await axios.get(
+        "https://skilters-server-technical-test.herokuapp.com/user/readToken",
+        {
+          headers: { authorization: "Bearer " + token }
+        }
+      );
       if (response.data.token) {
         Cookie.set("isTokenValid", true);
         this.setState({ isTokenValid: Cookie.get("isTokenValid") });

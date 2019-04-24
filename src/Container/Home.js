@@ -18,9 +18,12 @@ class Home extends Component {
 
   handleListUsersDisplay = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/user/readUsers", {
-        headers: { authorization: "Bearer " + this.props.token }
-      });
+      const response = await axios.get(
+        "https://skilters-server-technical-test.herokuapp.com/user/readUsers",
+        {
+          headers: { authorization: "Bearer " + this.props.token }
+        }
+      );
 
       this.setState({
         arrayUsers: response.data,
